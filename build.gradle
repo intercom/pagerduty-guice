@@ -1,0 +1,45 @@
+buildscript {
+  repositories {
+    jcenter()
+    mavenCentral()
+  }
+}
+
+plugins {
+  id 'eclipse'
+  id 'idea'
+  id 'java'
+  id 'maven'
+  id 'maven-publish'
+  id 'nebula.nebula-bintray' version '3.1.0'
+}
+
+sourceCompatibility = 1.8
+
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+publishing {
+  publications {
+    nebula(MavenPublication) {
+      from components.java
+    }
+  }
+}
+
+//noinspection GroovyAssignabilityCheck
+dependencies {
+  compile "com.google.inject:guice:4.0"
+  compile "com.google.inject.extensions:guice-assistedinject:4.0"
+  compile "com.squareup.okhttp:okhttp-urlconnection:2.0.0"
+  compile "com.squareup.pagerduty:pagerduty-incidents:1.0.1"
+  compile "org.slf4j:slf4j-api:1.7.12"
+  testCompile "org.mockito:mockito-core:1.10.17"
+  testCompile "junit:junit:4.11"
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.8'
+}
