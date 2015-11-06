@@ -12,6 +12,8 @@ plugins {
   id 'maven'
   id 'maven-publish'
   id 'nebula.nebula-bintray' version '3.1.0'
+  id 'nebula.maven-publish' version '4.4.1'
+  id 'nebula.source-jar' version '4.4.1'
 }
 
 sourceCompatibility = 1.8
@@ -19,14 +21,6 @@ sourceCompatibility = 1.8
 repositories {
   jcenter()
   mavenCentral()
-}
-
-publishing {
-  publications {
-    nebula(MavenPublication) {
-      from components.java
-    }
-  }
 }
 
 //noinspection GroovyAssignabilityCheck
